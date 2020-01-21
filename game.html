@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <title>GAME2</title> 
+    <head>
+
+</head>
+    <body>
+
+<canvas id="Gamecanvas" ></canvas> 
+
+
+<script>
+
+    var canvas;
+    var  canvasContext;
+    var ballx= 30; 
+    var ballspeed = 10 ;
+    var ballY= 30; 
+    var ballspeedY = 4 ;
+    var paddle = 50 ;
+const PADDLEHEIGHT = 10 ;
+function calculateMousePos(evt){
+
+    var rect = canvas.getBoundingClientRect();
+    var root = document.documentElement;
+    var mouseX = evt.clientX - rect.left - root.scrollLeft;
+    var mouseY = evt.clientY - rect.top - root.scrollTop;
+    return {
+        x:mouseX,
+        y:mouseX
+
+    };
+}    
+     window.onload= function() {
+        canvas = document.getElementById("Gamecanvas");
+    canvasContext = canvas.getContext ("2d");
+    
+    var framesPerSecond = 30;
+    setInterval( CallBoth , 1000/framesPerSecond);
+       
+canvas.addEventListener('mousemove' , function (evt) {   
+    var mousePos = calculateMousePos(evt);
+    paddle = mousePos.y - (PADDLEHEIGHT/2); 
+
+});
+
+       }
+       
+       function CallBoth() {
+     drawingEvery() ;
+     moveEverything() ; 
+     }
+
+       function drawingEvery(){
+    canvasContext.fillStyle = "black";
+    canvasContext.fillRect  (0, 0, canvas.width , canvas.height);
+
+    canvasContext.fillStyle = "red";
+    canvasContext.beginPath();
+    canvasContext.arc( ballx , ballY, 5, 0,Math.PI*2, true);    
+    canvasContext.fill();
+
+    
+    canvasContext.fillStyle = "white";
+    canvasContext.fillRect  (0, paddle ,  PADDLEHEIGHT , 30 );
+    }
+    
+
+
+    function ballxReset () {
+        ballspeed = -ballsped
+        ballspeed = canvas.width/2;
+        ballspeedY = canvas.height/2;
+    }
+
+
+function moveEverything (){
+    ballx= ballx + ballspeed ;
+    ballY = ballY + ballspeedY;
+
+    if (ballx > canvas.width ) {
+ballspeed = -ballspeed ;
+   }
+   if (ballx <0 ) {
+    /*   if ( ballY > paddle1Y &&
+       ballY < paddle1Y + PADDLEHEIGHT){
+         //  ballspeed = -ballspeed
+       }
+       else {
+           ballReset ()
+       }*/
+       ballspeed = -ballspeed;
+   }
+   if (ballY > canvas.height ) {
+ballspeedY = -ballspeedY;
+   }
+   if (ballY <0 ) {
+       ballspeedY = -ballspeedY;
+   }
+}
+
+
+   
+    
+
+
+</script>
+
+
+<style>
+    #Gamecanvas {
+width: 890px;
+height: 540px;
+ margin-top: 15px;
+ margin-left: 15px ;
+    }
+</style>
+
+
+
+
+
+
+    </body>
+</html>
