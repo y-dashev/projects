@@ -3,38 +3,62 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="style-for-portfolio2222.css">
+    <link rel="stylesheet" href="style-for-portfolio.css">
 
 </head>
-<body>
+<body id="portfolio-contacts2">
     <div class="main" >
-       <div class=drop>
-
-        <a href="portfolio-contacts.html" >Contact</a> &nbsp;&nbsp;&nbsp;
-      <!--  <a href="portfolio-about.html">About</a> &nbsp;&nbsp;&nbsp;-->
-    </div>
+      
+    <a href="portfolio-contacts.html" class="cont" >CONTACT</a> &nbsp;&nbsp;&nbsp;
     <div class="menu">    
-    <button class="button"> Info </button>
-    <div class="menu-inside">
-    <a href="portfolio-bio.html">BIO</a>
-    <a href="portfolio-more.html">MORE</a>
-</div>
-</div>
+        <button class="button"> INFO </button>
+        
+        <div class="menu-inside">
+        <a href="portfolio-bio.html">CV</a>
+        <a href="portfolio-more.html">Projects</a>
+        <a href="portfolio-gallery.html">Gallery</a>
+    </div>
+    </div>
+    <a  class="button2" href="portfolio.html">HOME</a>
+    
    
-        <!-- <div class="dropdown"> 
-           <button class="dropbtn> ">About</button> 
-       <a href="/portfolio-about.html">About</a> &nbsp;&nbsp;&nbsp;
-    -->
-
-    <header class="port" > <a href="portfolio-backup.html"> My Portfolio </a></header><br>
+     
+    <header class="port" > <a href="portfolio.html"> YAVOR DASHEV </a></header><br>
     <hr>
-    <div id="name" > 
-    <p style="font-size:35px;" >Yavor Dashev <p>
-    <ul  id="list" >
-        <li>Mountain Biker</li>
-        <li>Racer</li>
-        <li>Student</li>
-    </ul >
+   <div class="form">
+        <form method="POST" action="process.php" >
+         <p>
+         <label for="name">Name:</label>  
+         <input type="text" name="name" placeholder="First Name" required >
+     </p>
+     <p>
+         <label for="name">Email:</label>  
+         <input type="text" name="email" placeholder="Your email"  required>
+     </p>
+     <p>
+         <label for="name">Subject:</label> 
+            <input type="text" name="subject" >
+         </p>
+         <p>
+            <label for="name">Message:</label> 
+         <textarea name="body" id="textarea" cols="30" rows="10"></textarea>
+     </p>
+     <p>
+         <input id="submit" type="submit" name="submit"  onclick=" bravo ()" value="Send">
+     </p>
+    <!-- <button id= "button" type="button" onclick=" bravo ()" >submit</button>-->
+
+
+
+        </form >
+
+    </div>
+<script>
+function bravo(){
+    alert("Thank you!");
+}
+</script>
+
     
     
     
@@ -43,10 +67,10 @@
 </div>
 <!--<article class="article">
    <p> Contact</p>
-  </article >-->
-  <form class="contact-form" ></form>
+  </article >
+  <form class="contact-form" ></form>-->
 <footer class="footer">
-    <p> Developed by Yavor Dashev &copy; <a href=""> yavordashew@gmail.com </a></p>
+    <p> Developed by Yavor Dashev &copy; yavordashew@gmail.com </p>
     
    
 </footer>

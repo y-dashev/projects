@@ -1,51 +1,192 @@
 <!DOCTYPE html>
-<title> PORTFOLIO</title>
+<title> Projects</title>
 <html>
 <head>
 
-    <link rel="stylesheet" href="style-for-portfolio2222.css">
+    <link rel="stylesheet" href="style-for-portfolio.css">
 
 </head>
 <body>
     <div class="main" >
        <div class=drop>
 
-        <a href="portfolio-contacts.html" >Contact</a> &nbsp;&nbsp;&nbsp;
+        
       <!--  <a href="portfolio-about.html">About</a> &nbsp;&nbsp;&nbsp;-->
     </div>
+    <a href="portfolio-contacts.html" class="cont">CONTACT</a> &nbsp;&nbsp;&nbsp;
     <div class="menu">    
-    <button class="button"> Info </button>
+    <button class="button"> INFO </button>
     <div class="menu-inside">
-    <a href="portfolio-bio.html">BIO</a>
-    <a href="portfolio-more.html">MORE</a>
+    <a href="portfolio-bio.html">CV</a>
+    <a href="portfolio-more.html">Projects</a>
+    <a href="portfolio-gallery.html">Gallery</a>
 </div>
 </div>
-   
+<a  class="button2" href="portfolio.html">HOME</a>
         <!-- <div class="dropdown"> 
            <button class="dropbtn> ">About</button> 
        <a href="/portfolio-about.html">About</a> &nbsp;&nbsp;&nbsp;
     -->
 
-    <header class="port" > <a href="portfolio-backup.html">My Portfolio </a></header><br>
+    <header class="port" > <a href="portfolio.html">YAVOR DASHEV </a></header><br>
     <hr>
     <div id="name" > 
-    <p style="font-size:35px;" >Yavor Dashev <p>
+  <!--  <p style="font-size:35px;" >Yavor Dashev <p>
     <ul  id="list" >
         <li>Mountain Biker</li>
         <li>Racer</li>
         <li>Student</li>
     </ul >
+    -->
+    <div class=game>
+    <canvas id="Gamecanvas" ></canvas> 
+   <div class="box">
+    <div class="animation"></div></div>
+    <div class="animationcircle"></div>
+    <div class="container">
     
+        <svg class="loader"  viewBox="0 0 340 340">
+             <circle cx="170" cy="170" r="160" stroke="black"/>
+             <circle cx="170" cy="170" r="135" stroke="magenta"/>
+             <circle cx="170" cy="170" r="110" stroke="black"/>
+             <circle cx="170" cy="170" r="85" stroke="magenta"/>
+        </svg>
+        
+    </div>
+
+
+
+<script>
+
+    var canvas;
+    var  canvasContext;
+    var canvasstyle
     
+    var canvasmargin
     
+    var ballx= 30; 
+    var ballspeed = 10 ;
+    var ballY= 30; 
+    var ballspeedY = 4 ;
+    var paddle = 50 ;
+const PADDLEHEIGHT = 10 ;
+function calculateMousePos(evt){
+
+    var rect = canvas.getBoundingClientRect();
+    var root = document.documentElement;
+    var mouseX = evt.clientX - rect.left - root.scrollLeft;
+    var mouseY = evt.clientY - rect.top - root.scrollTop;
+    return {
+        x:mouseX,
+        y:mouseX
+
+    };
+}    
+     window.onload= function() {
+        canvas = document.getElementById("Gamecanvas");
+    canvasContext = canvas.getContext ("2d");
+    canvasstyle = document.getElementById("Gamecanvas")
+    canvasmargin = canvasstyle.style
+    var framesPerSecond = 30;
+    setInterval( CallBoth , 1000/framesPerSecond);
+       
+canvas.addEventListener('mousemove' , function (evt) {   
+    var mousePos = calculateMousePos(evt);
+    paddle = mousePos.y - (PADDLEHEIGHT/2); 
+
+});
+
+       }
+       
+       function CallBoth() {
+     drawingEvery() ;
+     moveEverything() ; 
+     }
+
+       function drawingEvery(){
+    canvasContext.fillStyle = "white";
+    canvasContext.fillRect  (0, 0, canvas.width , canvas.height);
+   canvasContext.style = ("style" , "position :absolute; left:50%;margin-left:400px;");
+
+    canvasContext.fillStyle = "magenta";
+    canvasContext.beginPath();
+    canvasContext.arc( ballx , ballY, 5, 0,Math.PI*2, true);    
+    canvasContext.fill();
+
     
+    canvasContext.fillStyle = "black";
+    canvasContext.fillRect  (0, paddle ,  PADDLEHEIGHT , 30 );
+    }
+    
+
+
+    function ballxReset () {
+        ballspeed = -ballsped
+        ballspeed = canvas.width/2;
+        ballspeedY = canvas.height/2;
+    }
+
+
+function moveEverything (){
+    ballx= ballx + ballspeed ;
+    ballY = ballY + ballspeedY;
+
+    if (ballx > canvas.width ) {
+ballspeed = -ballspeed ;
+   }
+   if (ballx <0 ) {
+    /*   if ( ballY > paddle1Y &&
+       ballY < paddle1Y + PADDLEHEIGHT){
+         //  ballspeed = -ballspeed
+       }
+       else {
+           ballReset ()
+       }*/
+       ballspeed = -ballspeed;
+   }
+   if (ballY > canvas.height ) {
+ballspeedY = -ballspeedY;
+   }
+   if (ballY <0 ) {
+       ballspeedY = -ballspeedY;
+   }
+}
+
+
+   
+    
+
+
+</script>
+
+
+<style>
+    #Gamecanvas {
+width: 600px;
+height: 300px;
+ margin-top: 15%;
+ margin-left: 100px ;
+ margin: auto;;
+background: white;    
+}
+#game{
+    margin-top: 30%;
+}
+
+</style>
+
+
+    
+<div>
+  </div>  
 </div>
 </div>
-<article class="article" >
+
+<!--<article class="article" >
    <p> Hello my name is Yavor Dashev</p>
-</article >
+</article >-->
 <footer class="footer">
-    <p> Developed by Yavor Dashev &copy; <a href=""> yavordashew@gmail.com </a></p>
+    <p> Developed by Yavor Dashev &copy; yavordashew@gmail.com </p>
     
    
 </footer>
